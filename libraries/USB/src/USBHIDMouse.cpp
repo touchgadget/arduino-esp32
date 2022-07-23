@@ -88,5 +88,8 @@ bool USBHIDMouse::isPressed(uint8_t b){
     return false;
 }
 
+void USBHIDMouse::sendReport(hid_mouse_report_t *report){
+    hid.SendReport(HID_REPORT_ID_MOUSE, report, sizeof(*report));
+}
 
 #endif /* CONFIG_TINYUSB_HID_ENABLED */
